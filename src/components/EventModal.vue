@@ -86,11 +86,9 @@ const handleSubmit = () => {
                     />
                     <span class="material-icons-outlined text-gray-400">bookmark_border</span>
                     <div class="flex gap-x-2">
-                        <template v-for="(lblClass, i) in labelsClasses">
-                            <span :class="getLabelClass(lblClass)" @click="setSelectedLabel(lblClass)">
-                                <span v-if="selectedLabel === lblClass" class="material-icons-outlined text-white text-sm">check</span>
-                            </span>
-                        </template>
+                        <span v-for="(lblClass, i) in labelsClasses" :class="getLabelClass(lblClass)" @click="setSelectedLabel(lblClass)" :key="i">
+                            <span v-if="selectedLabel === lblClass" class="material-icons-outlined text-white text-sm">check</span>
+                        </span>
                     </div>
                 </div>
             </div>

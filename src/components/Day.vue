@@ -8,7 +8,7 @@
     const $attrs = useAttrs();
     const dayEvents = ref([]);
     
-    const setDayEvents = (event) => {
+    const setDayEvents = (event: any) => {
         dayEvents.value = event;
     };
     
@@ -18,12 +18,12 @@
             "text-sm p-1 my-1 text-center";
     };
     
-    const getDayEventClass = (label) => {
+    const getDayEventClass = (label:any) => {
         return `bg-${label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`;
     };
     
     watch(() => [globalStore.filteredEvents, props.day], ([filteredEventsNewValue, dayNewValue]) => {
-        const events = filteredEventsNewValue.filter((evt) => {
+        const events = filteredEventsNewValue.filter((evt: any) => {
             return dayjs(evt.day).format("DD-MM-YY") === dayNewValue.format("DD-MM-YY")
         });
         setDayEvents(events);
@@ -38,11 +38,9 @@
         </header>
         <div class="flex-1 cursor-pointer" 
             @click.prevent="globalStore.setDaySelected(day); globalStore.setShowEventModal(true);">
-            <template v-for="(evt, idx) in dayEvents">
-                <div :class="getDayEventClass(evt.label)" @click.prevent="globalStore.setSelectedEvent(evt)">
-                    {{ evt.title }}
-                </div>
-            </template>
+            <div v-for="(evt, idx) in dayEvents" :key="idx" :class="getDayEventClass(evt.label)" @click.prevent="globalStore.setSelectedEvent(evt)">
+                {{ evt.title }}
+            </div>
         </div>
     </div>
 </template>

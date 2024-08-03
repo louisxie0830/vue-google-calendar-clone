@@ -1,13 +1,28 @@
 {
   "name": "vue-google-calendar-clone",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A Google Calendar clone built with Vue 3, TypeScript, and Vite",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vue-google-calendar-clone.git"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "vite",
+    "google-calendar",
+    "clone"
+  ],
+  "author": "Louis Xie <bfgh2678@gmai.com>",
+  "license": "MIT",
   "dependencies": {
     "dayjs": "^1.11.12",
     "pinia": "^2.2.0",

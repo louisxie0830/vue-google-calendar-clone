@@ -26,7 +26,7 @@
         setCurrentMonthIdx(currentMonthIdx.value + 1);
     };
     
-    const handleButtonClass = (day, daySelected) => {
+    const handleButtonClass = (day:any, daySelected: any) => {
         return `py-1 w-full ${getDayClass(day, daySelected)}`
     };
     
@@ -56,9 +56,9 @@
             <span class="text-sm py-1 text-center" v-for="(day, i) in currentMonth[0]" :key="i">
                 {{ day.format("dd").charAt(0) }}
             </span>
-            <template v-for="(row, i) in currentMonth">
-                <button type="button" 
-                    v-for="(day, i) in row" :class="handleButtonClass(day, globalStore.daySelected)"
+            <template v-for="(row) in currentMonth">
+                <button type="button"
+                    v-for="(day, i) in row" :key="i" :class="handleButtonClass(day, globalStore.daySelected)"
                     @click="globalStore.setSmallCalendarMonth(currentMonthIdx);
                             globalStore.setDaySelected(day)">
                     <span class="text-sm">{{ day.format("D") }} </span>

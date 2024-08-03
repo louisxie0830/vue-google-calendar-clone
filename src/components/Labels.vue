@@ -1,8 +1,8 @@
 
 <script setup lang="ts">
     import { useGlobalStore } from '../stores/useGlobalStore';
-    const globalStore = new useGlobalStore();
-    const handleInputClass = (lbl) => {
+    const globalStore = useGlobalStore();
+    const handleInputClass = (lbl:any) => {
         return `form-checkbox h-5 w-5 text-${lbl}-400 rounded focus:ring-0 cursor-pointer`
     };
 </script>
